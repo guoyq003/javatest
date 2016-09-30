@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <!--自动扫描的包-->
+    <context:component-scan base-package="com.jd.aop.demo"/>
+    <!--让Aspect切点起作用-->
+    <aop:aspectj-autoproxy/>
+    <!--属性注入方式-->
+    <bean id="car1" class="com.jd.spring.demo.Car">
+        <property name="brand" value="BMW"></property>
+        <property name="corlor" value="red"></property>
+        <property name="maxSpeed" value="200"></property>
+        <property name="price" value="300000"></property>
+    </bean>
+    <!--构造方法注入方式
+     构造方法注入，可以根据入参类型确定是哪个字段如下所示
+     -->
+    <bean id="car2" class="com.jd.spring.demo.Car">
+        <constructor-arg value="Toyota" index="0"></constructor-arg>
+        <constructor-arg value="black" index="1"></constructor-arg>
+        <constructor-arg value="350000" index="2"></constructor-arg>
+    </bean>
+    <bean id="car3" class="com.jd.spring.demo.Car">
+        <constructor-arg value="AUDI"></constructor-arg>
+        <!--特殊字符处理 使用<![CDATA[]]> -->
+        <constructor-arg>
+            <value><![CDATA[<block>~]]></value>
+        </constructor-arg>
+        <constructor-arg value="190" type="int"></constructor-arg>
+    </bean>
+    <bean id="person1" class="com.jd.spring.demo.Person">
+        <property name="name" value="毛泽东"></property>
+        <property name="age" value="39"></property>
+        <property name="sex" value="M"></property>
+        <!--<property name="car" ref="car2"></property>-->
+        <!--内部bean 外部无法调用-->
+        <property name="car">
+            <bean class="com.jd.spring.demo.Car">
+                <constructor-arg value="BMW"></constructor-arg>
+                <constructor-arg value="white"></constructor-arg>
+                <constructor-arg value="260" type="int"></constructor-arg>
+            </bean>
+        </property>
+    </bean>
+    <bean id="person2" class="com.jd.spring.demo.Person">
+        <property name="name" value="江泽民"></property>
+        <property name="age" value="89"></property>
+        <property name="sex" value="F"></property>
+        <property name="car" ref="car2"></property>
+        <!--级联属性，可以设置car对象中的某个字段值-->
+        <property name="car.price" value="210"></property>
+    </bean>
+    <!--list属性的注入-->
+    <bean id="personList" class="com.jd.spring.demo.PersonList">
+        <property name="name" value="胡锦涛"></property>
+        <property name="age" value="79"></property>
+        <property name="sex" value="M"></property>
+        <property name="cars">
+            <list>
+                <ref bean="car1"></ref>
+                <ref bean="car2"></ref>
+                <ref bean="car3"></ref>
+            </list>
+        </property>
+    </bean>
+    <!--map属性注入-->
+    <bean id="personMap" class="com.jd.spring.demo.PersonMap">
+        <property name="name" value="习近平"></property>
+        <property name="age" value="62"></property>
+        <property name="sex" value="M"></property>
+        <property name="carMap">
+            <map>
+                <entry key="Cinese" value-ref="car1"></entry>
+                <entry key="Janpan" value-ref="car2"></entry>
+                <entry key="Englist" value-ref="car3"></entry>
+            </map>
+        </property>
+    </bean>
+</beans>
