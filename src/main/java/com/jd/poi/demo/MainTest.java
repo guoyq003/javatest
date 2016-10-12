@@ -12,6 +12,10 @@ public class MainTest {
 
     public static void main(String[] args) {
         String fileName="E:/test/firstExcel.xls";
-        ReadExcelDemo.readExcel(fileName);
+//        ReadExcelDemo.readExcel(fileName);
+        ReadExcelDemo readExcelDemo=new ReadExcelDemo();
+//        System.out.println(readExcelDemo.getRowCount("score",fileName));
+        System.out.print(readExcelDemo.getColumnCount("score",fileName,0));
     }
+
 }
