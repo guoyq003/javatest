@@ -17,7 +17,7 @@ public class CreateExcelDemo {
             HSSFCell cell=row.createCell(2);
             cell.setCellValue("数学");
             FileOutputStream os=null;
-            os=new FileOutputStream("E:\\test\\firstExcel.xls");
+            os=new FileOutputStream("E:\\test\\test.xls");
             workbook.write(os);
             os.flush();
             os.close();

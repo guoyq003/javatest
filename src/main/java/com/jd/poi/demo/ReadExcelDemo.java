@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ReadExcelDemo {
+
     public static void readExcel(String fileName) {
         boolean isE2007 = false;
         if (fileName.endsWith("xlsx")) {
@@ -166,5 +167,21 @@ public class ReadExcelDemo {
             }
         }
         return this.excelColumnNum;
+    }
+    //判断excel的字段类型
+    public String getValue(HSSFCell hssfCell){
+        if (hssfCell.getCellType()==HSSFCell.CELL_TYPE_BOOLEAN){
+            return String.valueOf(hssfCell.getBooleanCellValue());
+        }
+        else if (hssfCell.getCellType()==HSSFCell.CELL_TYPE_NUMERIC){
+            return String.valueOf(hssfCell.getNumericCellValue());
+        }else {
+            return String.valueOf(hssfCell.getStringCellValue());
+        }
+    }
+    //读取excel
+    public void printValue(String excelFile) throws FileNotFoundException {
+        InputStream input=new FileInputStream(excelFile);
+
     }
 }
