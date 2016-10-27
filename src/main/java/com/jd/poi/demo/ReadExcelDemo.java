@@ -1,6 +1,7 @@
 package com.jd.poi.demo;
 
 import com.sun.org.apache.bcel.internal.classfile.SourceFile;
+import org.apache.poi.hssf.extractor.ExcelExtractor;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -105,71 +106,8 @@ public class ReadExcelDemo {
         }
         return wb;
     }
-    int rowNum;
-    public int getRowCount(String rowName,String fileName){
-        boolean isE2007 = false;
-        if (fileName.endsWith("xlsx")) {
-            isE2007 = true;
-        }
-        try {
-            InputStream input = new FileInputStream(fileName);
-            Workbook wb = null;
-            if (isE2007) {
-                wb = new XSSFWorkbook(input);
-            } else {
-                wb = new HSSFWorkbook(input);
-            }
-            Sheet sheet = wb.getSheetAt(0);
-            for (int i=0;i<sheet.getPhysicalNumberOfRows();i++){
-                Row row=sheet.getRow(i);
-                if (row!=null){
-                    for (int j=0;j<row.getPhysicalNumberOfCells();j++){
-                        Cell cell=row.getCell(j);
-                        if (cell!=null){
-                            if (cell.toString().equals(rowName)){
-                                rowNum=j;
-//                                System.out.println(rowNum);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return rowNum;
-    }
-    int excelColumnNum;
-    public int getColumnCount(String columnName,String excelFileName,int sheetNum) {
-        Workbook wb=this.getWorkbook(excelFileName);
-        Sheet sheet=wb.getSheetAt(sheetNum);
-        for (int i = 0; i < sheet.getPhysicalNumberOfRows(); i++) {
-            Row row = sheet.getRow(i);
-            if (row != null) {
-//                sheet.getColumnBreaks();
-                for (int j = 0; j < row.getPhysicalNumberOfCells(); j++) {
-                    Cell cell = row.getCell(j);
-//                    System.out.println(row.getPhysicalNumberOfCells()-1);
-                    if (cell != null) {
-//                        System.out.print(cell.toString()+"\t");
-                        if (cell.toString().equals(columnName)) {
-                            this.excelColumnNum = j;
-                            break;
-                        }
-                    }
-//                    if (j == row.getPhysicalNumberOfCells() - 1) {
-//                        this.excelColumnNum = -1;
-//                    }
-                }
-                System.out.println();
-            }
-        }
-        return this.excelColumnNum;
-    }
     //判断excel的字段类型
-    public String getValue(HSSFCell hssfCell){
+    public String valueType(HSSFCell hssfCell){
         if (hssfCell.getCellType()==HSSFCell.CELL_TYPE_BOOLEAN){
             return String.valueOf(hssfCell.getBooleanCellValue());
         }
@@ -180,8 +118,38 @@ public class ReadExcelDemo {
         }
     }
     //读取excel
-    public void printValue(String excelFile) throws FileNotFoundException {
+    public void getCellValue(String excelFile) throws Exception {
         InputStream input=new FileInputStream(excelFile);
+        POIFSFileSystem fs=new POIFSFileSystem(input);
+        HSSFWorkbook wb=new HSSFWorkbook(fs);
+        HSSFSheet
+                hssfSheet=wb.getSheetAt(0);
+        if (hssfSheet==null){
+            return;
+        }
+        for (int rowNum=0;rowNum<=hssfSheet.getLastRowNum();rowNum++){
+            HSSFRow hssfRow=hssfSheet.getRow(rowNum);
+            if (hssfRow==null){
+                continue;
+            }
+            for (int cellNum=0;cellNum<=hssfRow.getLastCellNum();cellNum++){
+                HSSFCell hssfCell=hssfRow.getCell(cellNum);
+                if (hssfCell==null){
+                    continue;
+                }
+                System.out.print(" "+valueType(hssfCell));
+            }
+            System.out.println();
+        }
+    }
+    //全部展示excel表格的内容
+    public void vieWExcel(String excelFile) throws IOException {
+        InputStream is=new FileInputStream(excelFile);
+        POIFSFileSystem fs=new POIFSFileSystem(is);
+        HSSFWorkbook wb=new HSSFWorkbook(fs);
 
+        ExcelExtractor excelExtractor=new ExcelExtractor(wb);
+        excelExtractor.setIncludeSheetNames(false);// 我们不需要Sheet页的名字
+        System.out.println(excelExtractor.getText());
     }
 }
