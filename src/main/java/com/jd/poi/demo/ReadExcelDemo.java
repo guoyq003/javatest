@@ -76,36 +76,15 @@ public class ReadExcelDemo {
             e.printStackTrace();
         }
     }
-    //获取dataExcel文件
-    public Workbook getWorkbook(String testDataFilePath){
-        Workbook wb = null;
-        boolean isE2007 = false;
-        if (testDataFilePath.endsWith("xlsx")) {
-            isE2007 = true;
+    //获取判断是excel2007还是2003
+    public Workbook getWorkbookType(String excelFile){
+        if (excelFile.endsWith("xlsx")){
+            return new XSSFWorkbook();
+        }else {
+            return new HSSFWorkbook();
         }
-        InputStream input = null;
-        try {
-
-            input = new FileInputStream(testDataFilePath);
-            //文件格式(2003或者2007)来初始化
-            if (isE2007) {
-                wb = new XSSFWorkbook(input);
-            } else {
-                wb = new HSSFWorkbook(input);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                input.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return wb;
     }
+
     //判断excel的字段类型
     public String valueType(HSSFCell hssfCell){
         if (hssfCell.getCellType()==HSSFCell.CELL_TYPE_BOOLEAN){
@@ -122,8 +101,7 @@ public class ReadExcelDemo {
         InputStream input=new FileInputStream(excelFile);
         POIFSFileSystem fs=new POIFSFileSystem(input);
         HSSFWorkbook wb=new HSSFWorkbook(fs);
-        HSSFSheet
-                hssfSheet=wb.getSheetAt(0);
+        HSSFSheet hssfSheet=wb.getSheetAt(0);
         if (hssfSheet==null){
             return;
         }
@@ -141,6 +119,7 @@ public class ReadExcelDemo {
             }
             System.out.println();
         }
+        input.close();
     }
     //全部展示excel表格的内容
     public void vieWExcel(String excelFile) throws IOException {

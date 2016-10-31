@@ -41,7 +41,7 @@ class Post extends Thread{
             HttpResponse response=client.execute(post);
             HttpEntity entity=response.getEntity();
             String result= EntityUtils.toString(entity,"UTF-8");
-            System.out.println(result);
+            System.out.println("results是："+result);
             JSONObject jsonObject=JSONObject.fromObject(result);
             JSONObject jsonObject1= (JSONObject) jsonObject.get("basic");
             Iterator iterator=jsonObject1.keys();
