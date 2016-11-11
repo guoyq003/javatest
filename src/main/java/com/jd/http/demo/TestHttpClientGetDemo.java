@@ -31,8 +31,10 @@ class Get extends Thread{
             HttpResponse res=client.execute(get);
             HttpEntity entity= res.getEntity();
             String result= EntityUtils.toString(entity,"UTF-8");
+            System.out.println("返回描述:"+res.getStatusLine().getReasonPhrase());
+            System.out.println("返回状态："+res.getStatusLine().getStatusCode());
+            System.out.println("http信息："+res.getStatusLine().toString());
             System.out.println(result);
-            System.out.println(res.getStatusLine().getProtocolVersion());
             JSONObject jsonObject=JSONObject.fromObject(result);
 //            System.out.println(jsonObject.get("errorCode"));
             System.out.println(jsonObject.get("basic"));
