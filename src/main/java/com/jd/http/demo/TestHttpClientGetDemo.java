@@ -4,6 +4,7 @@ import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -31,6 +32,7 @@ class Get extends Thread{
             HttpEntity entity= res.getEntity();
             String result= EntityUtils.toString(entity,"UTF-8");
             System.out.println(result);
+            System.out.println(res.getStatusLine().getProtocolVersion());
             JSONObject jsonObject=JSONObject.fromObject(result);
 //            System.out.println(jsonObject.get("errorCode"));
             System.out.println(jsonObject.get("basic"));
@@ -41,6 +43,7 @@ class Get extends Thread{
                 Object value= jsonObject1.get(key);
                 System.out.println(key+"="+value);
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
