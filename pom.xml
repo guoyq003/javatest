@@ -18,7 +18,7 @@
         <mybatis.version>3.4.0</mybatis.version>
         <!-- log4j日志文件管理包版本 -->
         <slf4j.version>1.7.21</slf4j.version>
-        <log4j.version>1.2.17</log4j.version>
+        <!--<log4j.version>1.2.17</log4j.version>-->
         <!-- mysql版本号-->
         <mysql.version>5.1.38</mysql.version>
     </properties>
@@ -111,6 +111,12 @@
             <artifactId>ezmorph</artifactId>
             <version>1.0.6</version>
         </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
         <!-- spring核心包 -->
         <dependency>
             <groupId>org.springframework</groupId>

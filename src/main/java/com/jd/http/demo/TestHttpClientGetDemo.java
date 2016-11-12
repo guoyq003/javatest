@@ -4,6 +4,7 @@ import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -30,6 +31,9 @@ class Get extends Thread{
             HttpResponse res=client.execute(get);
             HttpEntity entity= res.getEntity();
             String result= EntityUtils.toString(entity,"UTF-8");
+            System.out.println("返回描述:"+res.getStatusLine().getReasonPhrase());
+            System.out.println("返回状态："+res.getStatusLine().getStatusCode());
+            System.out.println("http信息："+res.getStatusLine().toString());
             System.out.println(result);
             JSONObject jsonObject=JSONObject.fromObject(result);
 //            System.out.println(jsonObject.get("errorCode"));
@@ -41,6 +45,7 @@ class Get extends Thread{
                 Object value= jsonObject1.get(key);
                 System.out.println(key+"="+value);
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
