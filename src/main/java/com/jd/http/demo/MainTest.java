@@ -9,13 +9,17 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHttpResponse;
+import org.apache.log4j.Logger;
+import sun.font.FontUtilities;
 import sun.misc.Sort;
 
 import java.io.InputStream;
 
 public class MainTest {
-    public static void main(String[] args) throws Exception {
-       HttpClientTest httpClientTest=new HttpClientTest();
-        httpClientTest.httpClientEntityTest();
+    public static void main(String[] args) {
+        int a=1;
+        int b=2;
+        
+        System.out.println(a+" "+b);
     }
 }
