@@ -23,7 +23,7 @@ public class datedemo {
     public static void main(String[] args) throws ParseException {
         String dateStr="20161227085009";
         stringToDate(dateStr);
-        String time=String.valueOf(System.currentTimeMillis());
+        String time="1480051749185";
         System.out.println(refFormatNowDate(time));
 
     }
