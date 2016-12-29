@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite1">
-    <test name="test1">
-        <classes>
-            <class name="com.jd.testNG.demo.TestngAnnotation"/>
-        </classes>
-    </test>
+    <!--<test name="test1">-->
+        <!--<classes>-->
+            <!--<class name="com.jd.testNG.demo.TestngAnnotation"/>-->
+        <!--</classes>-->
+    <!--</test>-->
     <!--<test name="test2">-->
         <!--<classes>-->
             <!--<class name="com.jd.testNG.demo.TestNGSimpleTest"/>-->
         <!--</classes>-->
     <!--</test>-->
+    <!--组测试-->
+    <!--<test name="test1">-->
+        <!--<groups>-->
+            <!--<run>-->
+                <!--<include name="functest"/>-->
+            <!--</run>-->
+        <!--</groups>-->
+        <!--<classes>-->
+            <!--<class name="com.jd.testNG.demo.GroupTestExample"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+    <!--组中组测试-->
+    <!--<test name="test2">-->
+        <!--<groups>-->
+            <!--<define name="all">-->
+                <!--<include name="functest"/>-->
+                <!--<include name="checkintest"/>-->
+            <!--</define>-->
+            <!--<run>-->
+                <!--<include name="all"/>-->
+            <!--</run>-->
+        <!--</groups>-->
+        <!--<classes>-->
+            <!--<class name="com.jd.testNG.demo.GroupTestExample" />-->
+        <!--</classes>-->
+    <!--</test>-->
+    <!--异常测试-->
+    <!--<test name="test1">-->
+        <!--<classes>-->
+            <!--<class name="com.jd.testNG.demo.ExpectedExceptionTest" />-->
+        <!--</classes>-->
+    <!--</test>-->
+    <!--参数测试-->
+    <test name="test1">
+        <parameter name="myName" value="Tom"/>
+        <classes>
+            <class name="com.jd.testNG.demo.ParameterizedTest1" />
+        </classes>
+    </test>
 </suite>
