@@ -19,7 +19,6 @@ public class CharacterToKeyFields {
 
         while (matcher.find())
 
-
         {
 
 
