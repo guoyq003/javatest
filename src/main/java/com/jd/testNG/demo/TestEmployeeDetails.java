@@ -2,6 +2,8 @@ package com.jd.testNG.demo;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.Reporter;
+import sun.rmi.runtime.Log;
 
 public class TestEmployeeDetails {
     EmployeeDetails employeeDetails=new EmployeeDetails();

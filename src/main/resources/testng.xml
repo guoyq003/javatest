@@ -44,10 +44,10 @@
         <!--</classes>-->
     <!--</test>-->
     <!--参数测试-->
-    <test name="test1">
-        <parameter name="myName" value="Tom"/>
-        <classes>
-            <class name="com.jd.testNG.demo.ParameterizedTest1" />
-        </classes>
-    </test>
+    <!--<test name="test1">-->
+        <!--<parameter name="myName" value="Tom"/>-->
+        <!--<classes>-->
+            <!--<class name="com.jd.testNG.demo.ParameterizedTest1" />-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>
