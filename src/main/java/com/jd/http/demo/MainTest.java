@@ -20,9 +20,10 @@ import java.util.IdentityHashMap;
 public class MainTest {
 
     public static void main(String[] args) throws Exception {
-        int a=1234;
-        String stra=String.valueOf(a);
-        for (int i=stra.length()-1;i>=0;i--){
+        int a = 1234;
+        String stra = String.valueOf(a);
+        for (int i = stra.length() - 1; i >= 0; i--) {
             System.out.print(stra.charAt(i));
         }
+    }
 }
