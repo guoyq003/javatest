@@ -9,7 +9,7 @@ import java.util.List;
 public class MainTest {
 
     public static void main(String[] args) throws Exception {
-        String file = "E:" + File.separator + "test" + File.separator + "input.txt";
+        String file = "E:" + File.separator + "javatest" + File.separator + "input.txt";
         String fileName1 = "E:\\test\\test1";
         String msg="大笨蛋的！";
         List<String> contents=new ArrayList<String>();

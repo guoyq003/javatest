@@ -1,6 +1,7 @@
 package com.jd.http.demo;
 
 import net.sf.json.JSONObject;
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -41,6 +42,13 @@ class Post extends Thread{
             parmameters.add(new BasicNameValuePair("q","cat"));
             post.setEntity(new UrlEncodedFormEntity(parmameters,"UTF-8"));
             HttpResponse response=client.execute(post);
+            Header header[]=response.getAllHeaders();//获取返回的header
+            for (int i=0;i<header.length;i++){
+                System.out.println(header[i].getName()+"=="+header[i].getValue());
+                if (header[i].getName().startsWith("Set-Cookie")){
+                    System.out.println("cookie的值是:"+header[i].getValue().split(";")[0]);
+                }
+            }
             HttpEntity entity=response.getEntity();
             String result= EntityUtils.toString(entity,"UTF-8");
             System.out.println("results是："+result);

@@ -9,6 +9,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHttpResponse;
+import org.apache.log4j.Logger;
+import sun.font.FontUtilities;
 import sun.misc.Sort;
 
 import java.io.InputStream;
@@ -23,5 +25,4 @@ public class MainTest {
         for (int i=stra.length()-1;i>=0;i--){
             System.out.print(stra.charAt(i));
         }
-    }
 }
