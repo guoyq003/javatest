@@ -22,6 +22,7 @@ public class MainTest {
 //        streamDemo.readFileTest4(file);
 //        System.out.println(CommonsIoDemo.getContentFromFile(file));
         CommonsIoDemo.addContent(file,contents);
+
     }
 
 }

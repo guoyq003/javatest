@@ -12,10 +12,16 @@ import org.apache.http.message.BasicHttpResponse;
 import sun.misc.Sort;
 
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.IdentityHashMap;
 
 public class MainTest {
+
     public static void main(String[] args) throws Exception {
-       HttpClientTest httpClientTest=new HttpClientTest();
-        httpClientTest.httpClientEntityTest();
+        int a=1234;
+        String stra=String.valueOf(a);
+        for (int i=stra.length()-1;i>=0;i--){
+            System.out.print(stra.charAt(i));
+        }
     }
 }
