@@ -1,5 +1,8 @@
 package com.jd.regex.demo;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by guoyq on 2016/12/31.
  */
@@ -32,5 +35,16 @@ public class RegexTest {
         System.out.println("   \n".matches("^[\\s&&[^\\n]]*\\n$"));
         // 0~N个字符，连接4个数字和一个字符
         System.out.println("aaa 2222q".matches(".*\\d{4}."));
+        //匹配,或者}结尾
+        String str="[{:detail \"暂无\", :measure \"\", :value 7001, :typeName \"风险\", :type 302710} {:detail \"\", :measure \"\", :value 302603, :typeName \"进度\", :type 302720} {:detail \"\", :measure \"\", :value 302603, :typeName \"成本\", :type 302730} {:detail \"\", :measure \"\", :value 302603, :typeName \"质量\", :type 302740}]";
+        String[] arryInt={"type","value"};
+        for (int i=0;i<arryInt.length;i++){
+            Pattern p= Pattern.compile(":"+arryInt[i]+" (.*?)[,}]");
+            Matcher m=p.matcher(str);
+            while(m.find()){
+                System.out.println(arryInt[i]+"="+m.group(1));
+            }
+        }
+
     }
 }
