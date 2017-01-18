@@ -1,12 +1,14 @@
 package com.jd.spring.demo;
 
 import java.util.List;
+import java.util.Map;
 
 public class Person {
     private String name;
     private int age;
     private Car car;
-    private List<Car> cars;
+    private List<Car> carList;
+    private Map<String,Car> carMap;
 
     public String getName() {
         return name;
@@ -32,12 +34,20 @@ public class Person {
         this.car = car;
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<Car> getCarList() {
+        return carList;
     }
 
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
+    public void setCarList(List<Car> carList) {
+        this.carList = carList;
+    }
+
+    public Map<String, Car> getCarMap() {
+        return carMap;
+    }
+
+    public void setCarMap(Map<String, Car> carMap) {
+        this.carMap = carMap;
     }
 
     @Override
@@ -45,7 +55,8 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", cars=" + cars +
+                ", carList=" + carList +
+                ", carMap=" + carMap +
                 '}';
     }
 }

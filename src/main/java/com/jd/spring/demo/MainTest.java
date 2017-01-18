@@ -10,7 +10,11 @@ public class MainTest {
 //        Car car2= (Car) context.getBean("car2");
 //        System.out.println("car1是:"+car1);
 //        System.out.println("car2是:"+car2);
-        Person person= (Person) context.getBean("person3");
-        System.out.println(person);
+        Person person3= (Person) context.getBean("person3");
+        Person person4= (Person) context.getBean("person4");
+        Person person5= (Person) context.getBean("person5");
+        System.out.println(person3);
+        System.out.println(person4);
+        System.out.println(person5);
     }
 }

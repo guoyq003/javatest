@@ -2,11 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-2.0.xsd
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     <!--通过构造方法配置bean-->
@@ -44,15 +47,35 @@
             </bean>
         </property>
     </bean>
-    <!--list集合属性-->
+    <!--list集合属性配置-->
     <bean id="person3" class="com.jd.spring.demo.Person">
         <property name="name" value="Mike"/>
         <property name="age" value="20"/>
-        <property name="cars">
+        <property name="carList">
             <list>
                 <ref bean="car1"/>
                 <ref bean="car2"/>
             </list>
         </property>
+    </bean>
+    <!--map集合属性配置-->
+    <bean id="person4" class="com.jd.spring.demo.Person">
+        <property name="name" value="Godn"/>
+        <property name="age" value="33"/>
+        <property name="carMap">
+            <map>
+                <entry key="A1" value-ref="car1"/>
+                <entry key="A2" value-ref="car2"/>
+            </map>
+        </property>
+    </bean>
+    <util:list id="cars">
+        <ref bean="car1"/>
+        <ref bean="car2"/>
+    </util:list>
+    <bean id="person5" class="com.jd.spring.demo.Person">
+        <property name="name" value="Bluse"/>
+        <property name="age" value="32"/>
+        <property name="carList" ref="cars"></property>
     </bean>
 </beans>
