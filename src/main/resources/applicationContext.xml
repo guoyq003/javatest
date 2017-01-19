@@ -75,7 +75,7 @@
     </util:list>
     <bean id="person5" class="com.jd.spring.demo.Person">
         <property name="name" value="Bluse"/>
-        <property name="age" value="32"/>
+        <property name="age" value="22"/>
         <property name="carList" ref="cars"></property>
     </bean>
 </beans>
