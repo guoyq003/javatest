@@ -9,7 +9,7 @@ public class Person {
     private Car car;
     private List<Car> carList;
     private Map<String,Car> carMap;
-
+    private Address address;
     public String getName() {
         return name;
     }
@@ -50,13 +50,23 @@ public class Person {
         this.carMap = carMap;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", car=" + car +
                 ", carList=" + carList +
                 ", carMap=" + carMap +
+                ", address=" + address +
                 '}';
     }
 }
