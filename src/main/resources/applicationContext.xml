@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -51,6 +52,7 @@
     <bean id="person3" class="com.jd.spring.demo.Person">
         <property name="name" value="Mike"/>
         <property name="age" value="20"/>
+        <property name="car" ref="car1"/>
         <property name="carList">
             <list>
                 <ref bean="car1"/>
@@ -59,9 +61,9 @@
         </property>
     </bean>
     <!--map集合属性配置-->
-    <bean id="person4" class="com.jd.spring.demo.Person">
-        <property name="name" value="Godn"/>
-        <property name="age" value="33"/>
+    <bean id="person4" class="com.jd.spring.demo.Person" p:name="Gdon">
+        <!--<property name="name" value="Godn"/>-->
+        <property name="age" value="31"/>
         <property name="carMap">
             <map>
                 <entry key="A1" value-ref="car1"/>
@@ -78,4 +80,14 @@
         <property name="age" value="22"/>
         <property name="carList" ref="cars"></property>
     </bean>
+    <!--自动装配配置,可以使用byName或byType两种方式配置
+    如果加了abstract属性为true的话，只能被继承，不能被实例化-->
+    <bean id="address1" class="com.jd.spring.demo.Address" p:city="北京" p:street="长安街1号"/>
+    <!--<bean id="address1" class="com.jd.spring.demo.Address" p:city="北京" p:street="长安街1号" abstract="true"/>-->
+    <!--bean的继承使用parent，也可以覆盖原来的属性值-->
+    <bean id="address2" parent="address1" p:city="上海"/>
+    <bean id="person6" class="com.jd.spring.demo.Person" p:name="Fson" p:car-ref="car1"
+          p:address-ref="address2"/>
+    <!--<bean id="person7" class="com.jd.spring.demo.Person" autowire="byName"/>-->
+    <bean id="person7" class="com.jd.spring.demo.Person" p:address-ref="address1"/>
 </beans>
