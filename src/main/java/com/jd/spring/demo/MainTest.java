@@ -15,10 +15,10 @@ public class MainTest {
         Person person5= (Person) context.getBean("person5");
         Person person6= (Person) context.getBean("person6");
         Person person7= (Person) context.getBean("person7");
-        System.out.println(person3);
-        System.out.println(person4);
-        System.out.println(person5);
-        System.out.println(person6);
-        System.out.println(person7);
+        System.out.println("person3:"+person3);
+        System.out.println("person4:"+person4);
+        System.out.println("person5:"+person5);
+        System.out.println("person6:"+person6);
+        System.out.println("person7:"+person7);
     }
 }
