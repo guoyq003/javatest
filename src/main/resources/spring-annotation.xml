@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <!--指定spring ioc扫描包-->
+    <context:component-scan base-package="com.jd.spring.demo.annotation"/>
+    <!--参数resource-pattern可以指定扫描的资源，加上该参数就只能扫描加到参数下的包中的内容-->
+    <!--<context:component-scan base-package="com.jd.spring.demo.annotation" resource-pattern="respository/*.class"/>-->
+    <!--<context:component-scan base-package="com.jd.spring.demo.annotation" use-default-filters="false">-->
+        <!--include-filter参数包含但是要结合use-default-filters使用，exclude-filter不包含-->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+    <!--</context:component-scan>-->
+</beans>
