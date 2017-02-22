@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class MainTest {
     public static void main(String[] args) {
         //使用aop切点
-        ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context=new ClassPathXmlApplicationContext("spring-annotation.xml");
         AirthmeticCalculator airthmeticCalculator=context.getBean(AirthmeticCalculator.class);
         int result=airthmeticCalculator.add(3,7);
         System.out.println(result);

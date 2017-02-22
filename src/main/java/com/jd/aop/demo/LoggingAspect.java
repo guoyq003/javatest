@@ -21,9 +21,9 @@ public class LoggingAspect{
         List<Object> args= Arrays.asList(joinPoint.getArgs());
         System.out.println("The method "+methodName+" begins with" +args);
     }
-//    @After("execution(* com.jd.aop.demo.*.*(..))")
-//    public void afterMethod(JoinPoint joinPoint){
-//        String methodName=joinPoint.getSignature().getName();
-//        System.out.println("The method"+methodName+" end");
-//    }
+    @After("execution(* com.jd.aop.demo.*.*(..))")
+    public void afterMethod(JoinPoint joinPoint){
+        String methodName=joinPoint.getSignature().getName();
+        System.out.println("The method"+methodName+" end");
+    }
 }
