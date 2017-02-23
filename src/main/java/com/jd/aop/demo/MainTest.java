@@ -8,14 +8,14 @@ public class MainTest {
         //使用aop切点
         ApplicationContext context=new ClassPathXmlApplicationContext("spring-annotation.xml");
         AirthmeticCalculator airthmeticCalculator=context.getBean(AirthmeticCalculator.class);
-        int result=airthmeticCalculator.add(3,7);
-        System.out.println(result);
-        int result1=airthmeticCalculator.add(10,2);
+//        int result=airthmeticCalculator.add(3,7);
+//        System.out.println(result);
+        int result1=airthmeticCalculator.div(10,0);
         System.out.println(result1);
 //        AirthmeticCalculator target=new AirthmeticCalculatorImpl();
 //        AirthmeticCalculator proxy=new AirthmeticCalculatorLoggingProxy(target).getLoggingProxy();
-//        int result=proxy.add(2,8);
-//        System.out.println(result);
+//        int result2=proxy.add(2,8);
+//        System.out.println(result2);
 
     }
 }
