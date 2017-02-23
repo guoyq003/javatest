@@ -74,6 +74,10 @@ public class ChinacLoudAppLogin {
         HttpResponse response=client.execute(post);
         HttpEntity entity=response.getEntity();
         String result= EntityUtils.toString(entity,"UTF-8");
-        System.out.println("results是："+result);
+//        System.out.println("results是："+result);
+        HttpGet get=new HttpGet("http://gzdjyweb.chinacloudapp.cn/gzdjy-pc/pc/shoppingcart/toList");
+        get.setHeader("Cookie",cookie);
+        response =client.execute(get);
+
     }
 }
