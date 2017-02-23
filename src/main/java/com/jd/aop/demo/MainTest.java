@@ -10,7 +10,7 @@ public class MainTest {
         AirthmeticCalculator airthmeticCalculator=context.getBean(AirthmeticCalculator.class);
 //        int result=airthmeticCalculator.add(3,7);
 //        System.out.println(result);
-        int result1=airthmeticCalculator.div(10,0);
+        int result1=airthmeticCalculator.div(10,2);
         System.out.println(result1);
 //        AirthmeticCalculator target=new AirthmeticCalculatorImpl();
 //        AirthmeticCalculator proxy=new AirthmeticCalculatorLoggingProxy(target).getLoggingProxy();

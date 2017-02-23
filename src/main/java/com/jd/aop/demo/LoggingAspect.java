@@ -1,6 +1,5 @@
 package com.jd.aop.demo;
 
-import com.sun.org.apache.bcel.internal.classfile.SourceFile;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -12,7 +11,11 @@ import java.util.List;
 @Aspect
 @Component
 public class LoggingAspect{
-
+//    /**
+//     * 定义一个方法，用于声明切入点表达式,该方法代码不需要添加其他代码
+//     */
+//    @Pointcut("execution(* com.jd.aop.demo.*.*(..))")
+//    public void declareJoinPointExpression(){}
     /**
      * 前置通知*/
     @Before("execution(* com.jd.aop.demo.*.*(int,int))")
