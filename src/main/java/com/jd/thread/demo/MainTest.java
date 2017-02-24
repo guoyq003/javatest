@@ -19,6 +19,8 @@ public class MainTest {
         thread4.setPriority(Thread.MAX_PRIORITY);
         System.out.println("线程优先级为:"+mth1.getPriority());
         System.out.println("线程优先级为:"+thread4.getPriority());
+        //中断线程，不是结束线程
+        thread3.interrupt();
         //线程是否活动
         System.out.println("线程是否活动:"+thread4.isAlive());
         System.out.println("线程状态为:"+thread3.getState());

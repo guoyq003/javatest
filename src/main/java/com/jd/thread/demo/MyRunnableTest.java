@@ -7,7 +7,9 @@ public class MyRunnableTest implements Runnable {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
+                //捕获线程中断的异常打印信息
+                System.out.println("线程中断...");
             }
         }
     }
