@@ -16,6 +16,5 @@ public class MainTest {
 //        AirthmeticCalculator proxy=new AirthmeticCalculatorLoggingProxy(target).getLoggingProxy();
 //        int result2=proxy.add(2,8);
 //        System.out.println(result2);
-
     }
 }
