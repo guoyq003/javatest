@@ -10,10 +10,10 @@ public class MainTest {
 //        Agent agent=new Agent(jackchen);
 //        agent.movieShow(20000);
         //动态代理调用1
-//        Star jackli=new Star("李连杰");
-//        ProxyHandler proxyHandler=new ProxyHandler(jackli);
-//        IMoveStar agent= (IMoveStar) proxyHandler.getProxy();
-//        agent.movieShow(500);
-//        agent.movieShow(100);
+        Star jackli=new Star("李连杰");
+        ProxyHandler proxyHandler=new ProxyHandler(jackli);
+        IMoveStar agent= (IMoveStar) proxyHandler.getProxy();
+        agent.movieShow(2500);
+        agent.movieShow(100);
     }
 }

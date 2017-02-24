@@ -45,7 +45,6 @@ class Get extends Thread{
                 Object value= jsonObject1.get(key);
                 System.out.println(key+"="+value);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }

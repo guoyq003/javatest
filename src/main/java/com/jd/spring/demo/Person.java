@@ -1,14 +1,15 @@
 package com.jd.spring.demo;
 
-/**
- * Created by guoyiqing1 on 2016/6/3.
- */
+import java.util.List;
+import java.util.Map;
+
 public class Person {
     private String name;
     private int age;
-    private char sex;
     private Car car;
-
+    private List<Car> carList;
+    private Map<String,Car> carMap;
+    private Address address;
     public String getName() {
         return name;
     }
@@ -25,14 +26,6 @@ public class Person {
         this.age = age;
     }
 
-    public char getSex() {
-        return sex;
-    }
-
-    public void setSex(char sex) {
-        this.sex = sex;
-    }
-
     public Car getCar() {
         return car;
     }
@@ -41,13 +34,39 @@ public class Person {
         this.car = car;
     }
 
+    public List<Car> getCarList() {
+        return carList;
+    }
+
+    public void setCarList(List<Car> carList) {
+        this.carList = carList;
+    }
+
+    public Map<String, Car> getCarMap() {
+        return carMap;
+    }
+
+    public void setCarMap(Map<String, Car> carMap) {
+        this.carMap = carMap;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", sex=" + sex +
                 ", car=" + car +
+                ", carList=" + carList +
+                ", carMap=" + carMap +
+                ", address=" + address +
                 '}';
     }
 }
