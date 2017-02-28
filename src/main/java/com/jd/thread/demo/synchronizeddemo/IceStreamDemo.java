@@ -37,9 +37,9 @@ public class IceStreamDemo implements Runnable {
         }
     }
     public void run() {
-//        while (flag){
+        while (flag){
             eatIceStream();
-//        }
+        }
     }
     //统计吃了多少个冰激凌
     public void showResult(){
