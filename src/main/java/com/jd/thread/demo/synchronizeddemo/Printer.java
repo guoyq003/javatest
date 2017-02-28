@@ -14,11 +14,11 @@ public class Printer {
                 e.printStackTrace();
             }
         }
-        System.out.print(num);  //输出数字
+        System.out.print(num);//输出数字
         //如果刚刚输出的数字是偶数的话，就唤醒字母输出线程
         if(num % 2 == 0){
-            numOut =true;  //标记已经输出数字
-            notify();       //唤醒字母输出线程去输出字母
+            numOut =true;//标记已经输出数字
+            notify();//唤醒字母输出线程去输出字母
         }
         try {
             Thread.sleep(200);
@@ -27,14 +27,14 @@ public class Printer {
         }
     }
     public synchronized void printLetter(char c){
-        if (!numOut){ //如果还没有输出数字，就等待数字输出
+        if (!numOut){//如果还没有输出数字，就等待数字输出
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.print(c);   //输出字母
+        System.out.print(c);//输出字母
         numOut = false;
         notify();
         try {
