@@ -1,4 +1,4 @@
-package com.jd.thread.demo.synchronizeddemo;
+package com.jd.thread.demo.synchronizeddemo.demo02;
 
 public class Consumer extends Thread {
     private int num;

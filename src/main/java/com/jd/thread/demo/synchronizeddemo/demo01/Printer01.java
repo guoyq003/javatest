@@ -1,4 +1,4 @@
-package com.jd.thread.demo.synchronizeddemo;
+package com.jd.thread.demo.synchronizeddemo.demo01;
 
 public class Printer01 {
     private boolean flag=true;//信号量，控制输出

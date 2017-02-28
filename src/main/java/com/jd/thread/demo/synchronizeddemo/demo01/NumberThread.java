@@ -1,4 +1,6 @@
-package com.jd.thread.demo.synchronizeddemo;
+package com.jd.thread.demo.synchronizeddemo.demo01;
+
+import com.jd.thread.demo.synchronizeddemo.demo01.Printer;
 
 public class NumberThread extends Thread {
     private Printer printer;

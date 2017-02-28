@@ -1,4 +1,4 @@
-package com.jd.thread.demo.synchronizeddemo;
+package com.jd.thread.demo.synchronizeddemo.demo02;
 
 public class Producer extends Thread {
     private int num;
