@@ -1,4 +1,4 @@
-package com.jd.json.demo.GsonDemo.demo1.demo3;
+package com.jd.json.demo.GsonDemo.demo3;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,7 +1,6 @@
-package com.jd.json.demo.GsonDemo.demo1.demo3;
+package com.jd.json.demo.GsonDemo.demo3;
 
 import com.google.gson.Gson;
-import com.sun.org.apache.bcel.internal.classfile.SourceFile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
