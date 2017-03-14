@@ -1,4 +1,4 @@
-package com.jd.json.demo;
+package com.jd.json.demo.GsonDemo.demo2;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

@@ -1,4 +1,4 @@
-package com.jd.json.demo.GsonDemo;
+package com.jd.json.demo.GsonDemo.demo1;
 
 public class Weather {
     private String date;

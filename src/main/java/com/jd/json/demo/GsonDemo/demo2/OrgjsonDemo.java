@@ -1,4 +1,4 @@
-package com.jd.json.demo;
+package com.jd.json.demo.GsonDemo.demo2;
 
 
 
