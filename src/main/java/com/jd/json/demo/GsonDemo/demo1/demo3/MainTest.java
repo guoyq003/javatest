@@ -39,13 +39,17 @@ public class MainTest {
         dataList.setAssignUser("");
         dataList.setFormId(54658);
         List<DataList> lists=new ArrayList<DataList>();
-        for (int i=1;i<=200;i++){
+        for (int i=1;i<=3;i++){
             lists.add(dataList);
         }
         FinalBean finalBean=new FinalBean();
         finalBean.setFormId(54658);
         finalBean.setDataList(lists);
         finalBean.set_time(System.currentTimeMillis()+80000);
-        System.out.println(new Gson().toJson(finalBean));
+        Gson gson=new Gson();
+        String json=gson.toJson(finalBean);
+        System.out.println(json);
+        System.out.println("======================");
+        finalBean=gson.fromJson(json,FinalBean.class);
     }
 }

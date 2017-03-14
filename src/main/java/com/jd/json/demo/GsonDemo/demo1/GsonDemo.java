@@ -46,7 +46,7 @@ public class GsonDemo {
         // 泛型List -> Json
         Type type=new TypeToken<List<JavaBean>>(){}.getType();
         String json2=gson.toJson(list1,type);
-        System.out.println(json2);
+        System.out.println("list转json为："+json2);
         System.out.println("------------------------------------------");
         /**
          * Map转换成Json字符串
