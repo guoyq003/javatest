@@ -14,7 +14,6 @@ import java.util.*;
 public class GsonDemo {
     public static void main(String[] args) {
         Gson gson=new Gson();
-        GsonBuilder gsonBuilder=new GsonBuilder();
         JavaBean javaBean=new JavaBean("1001","sctoo",20,"TL");
         /**
          * javabean 转换成json字符串
