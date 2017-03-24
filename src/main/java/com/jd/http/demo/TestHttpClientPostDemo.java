@@ -58,7 +58,7 @@ class Post extends Thread{
             while (iterator.hasNext()){
                 String key= (String) iterator.next();
                 Object value=jsonObject1.get(key);
-//                System.out.println(key+"="+value);
+                System.out.println(key+"="+value);
             }
         } catch (IOException e) {
             e.printStackTrace();

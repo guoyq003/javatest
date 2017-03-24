@@ -48,7 +48,5 @@ public class MainTest {
         Gson gson=new Gson();
         String json=gson.toJson(finalBean);
         System.out.println(json);
-        System.out.println("======================");
-        finalBean=gson.fromJson(json,FinalBean.class);
     }
 }
