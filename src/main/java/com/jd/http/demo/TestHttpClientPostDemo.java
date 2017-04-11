@@ -62,7 +62,7 @@ class Post extends Thread{
             }
         } catch (IOException e) {
             e.printStackTrace();
-            
+            System.out.println("dssds");
         }
     }
 }
