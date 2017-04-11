@@ -14,7 +14,7 @@ public class datedemo {
         Date date=simpleDateFormat.parse(dateStr);
         simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formattedTime = simpleDateFormat.format(date);
-        System.out.println("---->将" + dateStr + "解析为:" + formattedTime);
+//        System.out.println("---->将" + dateStr + "解析为:" + formattedTime);
     }
     public static String refFormatNowDate(String time) {
         Date nowTime = new Date(Long.valueOf(time));
@@ -23,23 +23,27 @@ public class datedemo {
         return retStrFormatNowDate;
     }
     public static void main(String[] args) throws ParseException {
-        String dateStr="20161227085009";
-        stringToDate(dateStr);
-        String time="1480051749185";
+//        String dateStr="1489129354523";
+//        stringToDate(dateStr);
+        String time="8691490678632";
+        String time1="1490686978632";
         System.out.println(refFormatNowDate(time));
-        System.out.println("==========");
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MMddHHmmss");
-        String str="20170105135000";
-        Date dt=sdf.parse(str);
-        Calendar rightNow = Calendar.getInstance();
-        rightNow.setTime(dt);
-//        rightNow.add(Calendar.YEAR,-1);//日期减1年
+        System.out.println(refFormatNowDate(time1));
+        System.out.println(System.currentTimeMillis());
+        System.out.println(System.currentTimeMillis()+100000000);
+//        System.out.println("==========");
+//        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MMddHHmmss");
+//        String str="20170310141510";
+//        Date dt=sdf.parse(str);
+//        Calendar rightNow = Calendar.getInstance();
+//        rightNow.setTime(dt);
+////        rightNow.add(Calendar.YEAR,-1);//日期减1年
 //        rightNow.add(Calendar.MONTH,3);//日期加3个月
 //        rightNow.add(Calendar.DAY_OF_YEAR,10);//日期加10天
-        rightNow.add(Calendar.MINUTE,-5);
-        Date dt1=rightNow.getTime();
-        String reStr = sdf.format(dt1);
-        System.out.println(reStr);
+//        rightNow.add(Calendar.MINUTE,-5);
+//        Date dt1=rightNow.getTime();
+//        String reStr = sdf.format(dt1);
+//        System.out.println(reStr);
     }
 
 }
