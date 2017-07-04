@@ -25,7 +25,8 @@ class Get extends Thread{
 
     @Override
     public void run() {
-        String url="http://fanyi.youdao.com/openapi.do?keyfrom=jdtest003&key=1551773209&type=data&doctype=json&version=1.1&"+"q=cat";
+//        String url="http://fanyi.youdao.com/openapi.do?keyfrom=jdtest003&key=1551773209&type=data&doctype=json&version=1.1&"+"q=cat";
+        String url="https://order.shop.jd.com/order/sopUp_waitOutList.action";
         HttpGet get=new HttpGet(url);
         try {
             HttpResponse res=client.execute(get);
